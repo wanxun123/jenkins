@@ -1,6 +1,8 @@
 package com.example.demo.conroller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.example.demo.utils.GlobalCatch;
+import com.example.demo.utils.StockClient;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -12,5 +14,15 @@ public class TomcatCheckController {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("timeStemp",time);
         return jsonObject;
+    }
+
+    @GetMapping("/true")
+    public void tomtrue() {
+
+        while (true){
+
+            GlobalCatch.list.add(new StockClient());
+
+        }
     }
 }
